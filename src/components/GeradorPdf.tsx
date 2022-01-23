@@ -4,8 +4,11 @@ import { Document, Page } from "react-pdf";
 import { IconeSetaDireita, IconeSetaEsquerda, IconeVoltar } from "./Icons/Icons";
 import loading from './Icons/loadin.gif'
 
+
+
 interface GeradorPdfProps {
     mes?: string
+    caminho: 'meiodesemana' | 'fimdesemana' | 'cartas' | 'financeiro' | any
 }
 export default function GeradorPdf(props: GeradorPdfProps) {
 
@@ -57,9 +60,9 @@ export default function GeradorPdf(props: GeradorPdfProps) {
         <section className="flex flex-col h-screen w-screen items-center justify-center  overflow-auto bg-gray-200">
 
             <Document
-                file={`/designacoes/meiodesemana/${props.mes}.pdf`}
+                file={`/assets/${props.caminho}/${props.mes}.pdf`}
                 onLoadSuccess={onDocumentLoadSuccess}
-                loading={<Image src={loading}></Image>}
+                loading={<Image src={loading} alt="Gif de carregamento"></Image>}
                 error={renderError}
             >
                 <Page

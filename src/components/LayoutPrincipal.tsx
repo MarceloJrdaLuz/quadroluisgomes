@@ -1,17 +1,17 @@
-import Botao from "./Botao";
-import ConteudoInicio from "./Conteudo";
 import Conteudo from "./Conteudo";
 import Footer from "./Footer";
 import Header from "./Header";
 
 interface LayoutPrincipalProps {
     children?: any
+    className: string
 }
 
 export default function LayoutPrincipal(props: LayoutPrincipalProps) {
+
     return (
-        <div className="layout bg-gray-200 h-screen w-screen flex flex-col md:w-3/4 md:m-auto lg:w-3/5">
-            <Header />
+        <div className="layout shadow shadow-gray-600 bg-gray-200 h-screen w-screen flex flex-col md:w-3/4 md:m-auto lg:w-3/5">
+            <Header className={props.className}/>
             <Conteudo>
                 {props.children}
             </Conteudo>

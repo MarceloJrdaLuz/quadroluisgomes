@@ -1,24 +1,24 @@
 import { createContext, useState } from "react";
 
 interface AppContextProps{
-    pdfShow?: boolean
-    setPdfShow?: any
+    categoria?: string
+    alternarCategoria?: (e: string) => void
 }
 
 const AppContext = createContext<AppContextProps>({})
 
 export function AppProvider(props){
 
-    const [pdfShow, setPdfShow] = useState(false)
+    const [categoria, setCategoria] = useState('')
 
-    function alternarPdfShow(){
-        console.log(pdfShow)
+    function alternarCategoria(e){
+        setCategoria(e)
     }
 
     return(
         <AppContext.Provider value={{
-            pdfShow,
-            setPdfShow
+           categoria,
+           alternarCategoria
         }}>
             {props.children}
         </AppContext.Provider>

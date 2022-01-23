@@ -5,6 +5,7 @@ interface BotaoProps {
     href?: string
     onClick?: any
     alternarPdfShow?:  () => void
+    alterarCategoria?: (e:any) => any
 }
 
 export default function Botao(props: BotaoProps) {

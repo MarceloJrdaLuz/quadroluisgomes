@@ -5,9 +5,19 @@ module.exports = {
   ],
   theme: {
     extend: {
-      // backgroundImage: theme => ({
-      //   'teste': "url('./src/images/fotosalao.jpg')"
-      // })
+      backgroundImage: theme => ({
+        'home': "url('/images/fotosalao.png')",
+        'designacoes': "url('/images/designacoes.png')",
+        'cartas': "url('/images/cartas.jpg')",
+        'contas': "url('/images/contas.jpg')",
+        'limpeza': "url('/images/limpeza.jpg')"
+      }),
+      brightness: {
+        30: '.30',
+      },
+      height: {
+        0.5: '0.10rem'
+      }
     },
   },
   plugins: [],

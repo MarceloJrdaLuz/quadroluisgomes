@@ -1,16 +1,13 @@
-import Image from "next/image";
-import image from "../images/fotosalao.jpg"
 
 interface HeaderProps {
-
+    className?: string
 }
 
-export default function Header() {
+export default function Header(props: HeaderProps) {
+
     return (
-        <header className={`relative h-2/3 w-full md:h-2/3
+        <header className={`h-2/3 w-full md:h-2/3 brightness-30 ${props.className}
         `}>
-            <Image src={image} layout="fill" objectFit="cover" />
-            <span className="flex justify-center items-center relative text-2xl font-bold text-white ">Quadro de Anúncios</span>
         </header>
     )
 }
