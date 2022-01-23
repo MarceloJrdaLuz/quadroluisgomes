@@ -28,9 +28,9 @@ export default function Designacoes() {
     function renderizarBotoes() {
         return tresMeses ? (
             <div className="flex justify-between w-full md:w-4/5 ">
-                <Botao texto={`${DateConverter('mes-1')}`}/>
-                <Botao texto={`${DateConverter('mes')}`} />
-                <Botao texto={`${DateConverter('mes+1')}`} />
+                <Botao onClick={() =>{setPdfShow(true), setPdfMes(`${DateConverter('mes-1')}`)}} texto={`${DateConverter('mes-1')}`}/>
+                <Botao onClick={() =>{setPdfShow(true), setPdfMes(`${DateConverter('mes')}`)}} texto={`${DateConverter('mes')}`} />
+                <Botao onClick={() =>{setPdfShow(true), setPdfMes(`${DateConverter('mes+1')}`)}} texto={`${DateConverter('mes+1')}`} />
             </div>
         ) : (
             <div className="flex justify-between w-full md:w-4/5 ">
