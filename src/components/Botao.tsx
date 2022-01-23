@@ -4,6 +4,7 @@ interface BotaoProps {
     texto: string | Date 
     href?: string
     onClick?: any
+    alternarPdfShow?:  () => void
 }
 
 export default function Botao(props: BotaoProps) {

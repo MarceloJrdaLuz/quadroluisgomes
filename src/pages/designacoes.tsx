@@ -1,16 +1,14 @@
 import { useState } from "react";
 import Botao from "../components/Botao";
 import LayoutPrincipal from "../components/LayoutPrincipal";
-import DateConverter, { tresMesesProgramacao } from "../components/functions/meses";
+import DateConverter, { tresMesesProgramacao } from "../functions/meses";
+import GeradorPdf from "../components/GeradorPdf";
 
-export default function Limpeza() {
+export default function Designacoes() {
 
-    //testes 
+    const[pdfShow, setPdfShow] = useState(false)
 
-    const diaHoje = 6
-    const diaSemana = 5
-
-    //-------------///
+    const [pdfMes, setPdfMes] = useState('')
 
     const [visivel, setVisivel] = useState(false)
 
@@ -20,6 +18,11 @@ export default function Limpeza() {
         tresMeses = tresMesesProgramacao()
     }
 
+    function renderizarPdf(){
+        return(
+            <GeradorPdf mes={pdfMes}/>
+        )
+    }
     
 
     function renderizarBotoes() {
@@ -31,13 +34,14 @@ export default function Limpeza() {
             </div>
         ) : (
             <div className="flex justify-between w-full md:w-4/5 ">
-                <Botao texto={`${DateConverter('mes')}`} />
-                <Botao texto={`${DateConverter('mes+1')}`} />
+                <Botao onClick={() =>{setPdfShow(true), setPdfMes(`${DateConverter('mes')}`)}} texto={`${DateConverter('mes')}`} />
+                <Botao onClick={() =>{setPdfShow(true), setPdfMes(`${DateConverter('mes+1')}`)}} texto={`${DateConverter('mes+1')}`} />
             </div>
         )
     }
 
-    return (
+    return !pdfShow ? (
+
         <LayoutPrincipal>
             <Botao
                 onClick={() => setVisivel(true)}
@@ -53,5 +57,7 @@ export default function Limpeza() {
                 {<p className="font-bold">Domingo às 09:30hrs</p>}
             <Botao href='/' texto='Voltar' />
         </LayoutPrincipal>
+    ) : (
+        renderizarPdf()
     )
 }
