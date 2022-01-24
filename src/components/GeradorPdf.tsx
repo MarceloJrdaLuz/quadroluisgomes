@@ -9,6 +9,7 @@ import loading from './Icons/loadin.gif'
 interface GeradorPdfProps {
     mes?: string
     caminho: 'meiodesemana' | 'fimdesemana' | 'cartas' | 'financeiro' | any
+    rotate?: number
 }
 export default function GeradorPdf(props: GeradorPdfProps) {
 
@@ -64,6 +65,7 @@ export default function GeradorPdf(props: GeradorPdfProps) {
                 onLoadSuccess={onDocumentLoadSuccess}
                 loading={<Image src={loading} alt="Gif de carregamento"></Image>}
                 error={renderError}
+                rotate={props.rotate ? props.rotate : 0}
             >
                 <Page
                     height={700}

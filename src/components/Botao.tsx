@@ -14,7 +14,7 @@ export default function Botao(props: BotaoProps) {
         return (
             <button  className={`
                 bg-teal-600 my-1  hover:bg-teal-800 w-full rounded-md h-10  
-                text-white text-lg
+                text-white text-xl
                  font-medium md:w-4/5 md:m-1 auto
                  mx-1
                 `} onClick={props.onClick}>

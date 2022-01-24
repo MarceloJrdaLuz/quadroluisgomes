@@ -54,13 +54,13 @@ export default function Designacoes() {
             />
 
             {visivel ? renderizarBotoes() : null}
-            {!visivel ? <p className="font-bold">Quinta-feira às 19:30hrs</p> : null}
+            {!visivel ? <p className="font-bold  text-xl">Quinta-feira às 19:30hrs</p> : null}
 
             <Botao
                 onClick={()=> {setOpcao('fimdesemana'), setPdfMes(`${DateConverter('mes')}`), setPdfShow(true)}}
                 texto='Reunião Pública'
             />
-            {<p className="font-bold">Domingo às 09:30hrs</p>}
+            {<p className="font-bold text-xl">Domingo às 09:30hrs</p>}
             <Botao href='/' texto='Voltar' />
         </LayoutPrincipal>
     ) : (

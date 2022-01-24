@@ -12,27 +12,34 @@ export default function Cartas() {
 
     const [visivelCartas, setVisivelCartas] = useState(false) //
 
+    const [item, setItem] = useState<''|'carta1'|'carta2'|'assembleias'|'congresso'|'visita'>('')
 
-    function renderizarPdf(opcao: string) {
+    const [rotate, setRotate] = useState(0)
+
+
+    function renderizarPdf(item?: string) {
+        console.log(item)
         return (
-            <GeradorPdf caminho={opcao} mes='cartas'/>
+            <GeradorPdf caminho='cartas' mes={item} rotate={rotate}/>
         )
     }
 
     function renderizarBotoesEventos (){
         return(
             <div className="flex justify-between w-full md:w-4/5">
-                <Botao texto='Assembleias'/>
-                <Botao texto='Congresso'/>
-                <Botao texto='Visita do SC'/>
+                <Botao onClick={()=> {setItem('assembleias'), setPdfShow(true), setRotate(90)}} texto='Assembleias' />
+
+                <Botao onClick={()=> {setItem('congresso'), setPdfShow(true)}} texto='Congresso'/>
+
+                <Botao onClick={()=> {setItem('visita'), setPdfShow(true),setRotate(90)}} texto='Visita do SC'/>
             </div>
         )
     }
     function renderizarBotoesCartas (){
         return(
             <div className="flex justify-between w-full md:w-4/5">
-                <Botao texto='Carta 1'/>
-                <Botao texto='Carta 2'/>
+                <Botao onClick={()=> {setItem('carta1'), setPdfShow(true)}} texto='Carta 1'/>
+                <Botao onClick={()=> {setItem('carta2'), setPdfShow(true)}} texto='Carta 2'/>
             </div>
         )
     }
@@ -51,6 +58,6 @@ export default function Cartas() {
             <Botao href='/' texto='Voltar' />
         </LayoutPrincipal>
     ) : (
-        renderizarPdf('cartas')
+        renderizarPdf(item)
     )
 }
