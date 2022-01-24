@@ -7,7 +7,7 @@ interface FooterProps {
 export default function Footer(props: FooterProps) {
     return (
         <footer className={`
-            flex flex-col items-center justify-center bg-teal-900 py-5
+            flex flex-col items-center justify-center bg-teal-950 py-5
             `}>
             <span className="text-white text-"><strong>{props.ano} | {props.nomeCongregacao}</strong></span>
 

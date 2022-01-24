@@ -13,7 +13,7 @@ export default function Botao(props: BotaoProps) {
     function renderizarBotao() {
         return (
             <button  className={`
-                bg-teal-600 my-1  hover:bg-teal-800 w-full rounded-md h-10  
+                bg-[rgb(13,106,134)] my-1  hover:bg-cyan-950 w-full rounded-md h-10  
                 text-white text-xl
                  font-medium md:w-4/5 md:m-1 auto
                  mx-1

@@ -17,6 +17,11 @@ module.exports = {
       },
       height: {
         0.5: '0.10rem'
+      },
+      colors:{
+        cyan:{
+          950: '#093e49'
+        }
       }
     },
   },
