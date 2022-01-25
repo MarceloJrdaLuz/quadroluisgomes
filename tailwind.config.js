@@ -21,6 +21,10 @@ module.exports = {
       colors:{
         cyan:{
           950: '#093e49'
+        },
+        teste:{
+          100: '#006d77',
+          200: '#83c5be'
         }
       }
     },

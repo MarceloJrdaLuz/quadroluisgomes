@@ -47,7 +47,7 @@ export default function Designacoes() {
 
     return !pdfShow ? (
 
-        <LayoutPrincipal className='bg-designacoes bg-center bg-cover'>
+        <LayoutPrincipal heightConteudo={'1/2'} header className='bg-designacoes bg-center bg-cover'>
             <Botao
                 onClick={() => setVisivel(true)}
                 texto='Vida e Ministério'

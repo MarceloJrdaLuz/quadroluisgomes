@@ -68,7 +68,7 @@ export default function GeradorPdf(props: GeradorPdfProps) {
                 rotate={props.rotate ? props.rotate : 0}
             >
                 <Page
-                    height={600}
+                    height={500}
                     pageNumber={numberPage}
                 />
             </Document>
