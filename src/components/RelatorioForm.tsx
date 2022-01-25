@@ -3,7 +3,7 @@ import Label from "./Label";
 
 export default function RelatorioForm() {
     return (
-        <div className="px-4 w-full h-full flex flex-col border-2 rounded-xl bg-gray-200">
+        <div className="px-4 w-full flex flex-col border-2 rounded-xl bg-gray-200">
             <h1 className="mt-2 flex justify-center text-3xl font-semibold">Relatório</h1>
             <form className="flex flex-col  p-3">
                 <Input placeholder="Nome" tipo='text' />
