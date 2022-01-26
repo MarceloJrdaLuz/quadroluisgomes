@@ -4,7 +4,7 @@ import RelatorioForm from "../components/RelatorioForm";
 
 export default function Relatorio() {
     return (
-        <LayoutPrincipal bgFundo={'bg-teste-100'} heightConteudo="full">
+        <LayoutPrincipal bgFundo={'bg-teste-100'} heightConteudo="auto">
                 <RelatorioForm/>
         </LayoutPrincipal>
 
