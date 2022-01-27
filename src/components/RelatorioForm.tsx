@@ -22,10 +22,14 @@ export default function RelatorioForm() {
 
     function renderizarBotoesEnvio() {
 
+        const linkMarcelo = `https://api.whatsapp.com/send?phone=5542998675557&text=*Publicador:*%20${nome}%0A%0A*Mês:*%20${MesString(new Date().getMonth())}%0A%0A*Publicações:*%20${publicacoes}%0A*Vídeos:*%20${videos}%0A*Horas:*%20${horas}%0A*Revisitas:*%20${revisitas}%0A*Estudos:*%20${estudos}%0A%0A*Observações:*%20${observacoes}`
+
+        const linkPaulo = `https://api.whatsapp.com/send?phone=556681420394&text=*Publicador:*%20${nome}%0A%0A*Mês:*%20${MesString(new Date().getMonth())}%0A%0A*Publicações:*%20${publicacoes}%0A*Vídeos:*%20${videos}%0A*Horas:*%20${horas}%0A*Revisitas:*%20${revisitas}%0A*Estudos:*%20${estudos}%0A%0A*Observações:*%20${observacoes}`
+
         return btnEnvio ? (
             <div className="flex ">
                 <div className="flex w-full h-16">
-                        <a href={`https://api.whatsapp.com/send?phone=5542998675557&text=*Publicador:*%20${nome}%0A%0A*Mês:*%20${MesString(new Date().getMonth())}%0A%0A*Publicações:*%20${publicacoes}%0A*Vídeos:*%20${videos}%0A*Horas:*%20${horas}%0A*Revisitas:*%20${revisitas}%0A*Estudos:*%20${estudos}%0A%0A*Observações:*%20${observacoes}`} className="flex justify-center items-center bg-teste-200 my-1  hover:bg-teste-200  w-full rounded-md
+                        <a href={linkMarcelo} className="flex justify-center items-center bg-teste-200 my-1  hover:bg-teste-200  w-full rounded-md
                                 text-black text-base
                                  font-medium md:w-4/5 md:m-1 auto hover:-translate-x-1
                                  mx-1 hover:border-2 hover:border-black
@@ -34,7 +38,7 @@ export default function RelatorioForm() {
                             <span className="ml-2">{IconeWhats}</span>
                         </a>
 
-                    <Link href={`https://api.whatsapp.com/send?phone=556681420394&text=*Publicador:*%20${nome}%0A%0A*Mês:*%20${mes}%0A%0A*Publicações:*%20${publicacoes}%0A*Vídeos:*%20${videos}%0A*Horas:*%20${horas}%0A*Revisitas:*%20${revisitas}%0A*Estudos:*%20${estudos}%0A%0A*Observações:*%20${observacoes}`}>
+                    <Link href={linkPaulo}>
                         <button className="flex justify-center items-center bg-teste-200 my-1  hover:bg-teste-200  w-full rounded-md
                         text-black text-base
                          font-medium md:w-4/5 md:m-1 auto hover:-translate-x-1
