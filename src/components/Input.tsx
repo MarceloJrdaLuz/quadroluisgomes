@@ -1,3 +1,4 @@
+import { MesString } from "../functions/meses";
 import Label from "./Label";
 
 interface InputProps {
@@ -5,6 +6,8 @@ interface InputProps {
     placeholder: string
     onChange?: any
     name?: string
+    readonly?: boolean
+    mes?: any
 }
 
 export default function Input(props: InputProps) {
@@ -14,8 +17,10 @@ export default function Input(props: InputProps) {
             <input
                 onChange={props.onChange}
                 type="text" name={props.name}
-                placeholder=" " className="block p-4 w-full  text-xl
-             text-black appearance-none  focus:outline-none bg-transparent"
+                placeholder={props.mes ? `${MesString(props.mes)}` : " "} className="block p-4 w-full  text-xl
+             text-black appearance-none placeholder-black focus:outline-none bg-transparent"
+                readOnly={props.readonly}
+                autoComplete="off"
             />
             <Label texto={props.placeholder} />
         </div>

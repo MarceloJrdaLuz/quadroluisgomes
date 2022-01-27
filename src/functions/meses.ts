@@ -19,3 +19,8 @@ export function tresMesesProgramacao(){
     console.log(segunda)
     return segunda <= 0 ? true : false
 }
+
+export function MesString(mes: number){
+    const diaAtual = new Date().getDate()
+    return diaAtual >=30 ?  meses[mes+1] : meses[mes]
+}

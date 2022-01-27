@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
+import DateConverter, { MesString } from "../functions/meses";
 import Botao from "./Botao";
 import { IconeWhats } from "./Icons/Icons";
 import Input from "./Input";
@@ -51,7 +52,7 @@ export default function RelatorioForm() {
             <h1 className="my-4 flex justify-center text-3xl font-semibold">Relatório</h1>
             <form onSubmit={e => e.preventDefault()} className="flex flex-col  p-3">
                 <Input name="nome" placeholder="Nome" tipo='text' onChange={({ target: { value } }) => setNome(value)} />
-                <Input name="mes" placeholder="Mês" tipo='text' onChange={({ target: { value } }) => setmes(value)} />
+                <Input readonly mes={1} name="mes" placeholder="Mês" tipo='text' onChange={({ target: { value } }) => setmes(value)} />
                 <Input name="publicacoes" placeholder="Publicações" tipo='number' onChange={({ target: { value } }) => setPublicacoes(value)} />
                 <Input name="videos" placeholder="Vídeos" tipo='number' onChange={({ target: { value } }) => setVideos(value)} />
                 <Input name="horas" placeholder="Horas" tipo='number' onChange={({ target: { value } }) => setHoras(value)} />
