@@ -15,7 +15,7 @@ interface LayoutPrincipalProps {
 export default function LayoutPrincipal(props: LayoutPrincipalProps) {
 
     return (
-        <div className={`layout relative shadow shadow-gray-600  bg-gray-200 h-screen w-screen flex flex-col md:w-3/4 md:m-auto lg:w-5/5 lg:shadow-none`}>
+        <div className={`layout relative shadow shadow-gray-600  bg-gray-200 h-screen w-screen flex flex-col md:w-screen md:m-auto lg:w-screen lg:shadow-none`}>
             {!props.header ? null : <Header className={props.className} texto={props.textoHeader}></Header>}
             <Conteudo bgFundo={props.bgFundo} hConteudo={props.heightConteudo}>
                 {props.children}
