@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Document, Page } from "react-pdf";
-import { IconeSetaDireita, IconeSetaEsquerda, IconeVoltar } from "./Icons/Icons";
+import { IconeSeta, IconeSetaDireita, IconeSetaEsquerda, IconeVoltar } from "./Icons/Icons";
 import loading from './Icons/loadin.gif'
 
 
@@ -13,7 +13,7 @@ interface GeradorPdfProps {
 }
 export default function GeradorPdf(props: GeradorPdfProps) {
 
-    const[renderBtn, setRenderBtn] = useState(true)
+    const [renderBtn, setRenderBtn] = useState(true)
     const [numPages, setNumPages] = useState(null)
     const [numberPage, setNumberPage] = useState(1)
     const ultimaPagina = numPages
@@ -25,20 +25,25 @@ export default function GeradorPdf(props: GeradorPdfProps) {
         setNumPages(numPages)
     }
 
-    function renderError (){
+    function renderError() {
         setRenderBtn(false)
-        return(
-                <div className="text-2xl text-gray-900 bg-teal- bg-teal-500 px-24 py-10 shadow shadow-slate-900 md:px-32 md:py-12 rounded-lg">Arquivo não disponível</div>
-        )    
+        return (
+            <div className="bg-gray-300 h-screen w-screen flex justify-center items-center">
+                <div className="text-2xl text-center font-semibold text-gray-900  bg-teste-200 px-20 py-10 shadow shadow-slate-900  md:px-32 md:py-12 rounded-lg w-5/6">Arquivo não disponível</div>
+                <div onClick={()=> window.location.reload()} className="absolute flex justify-start rounded-full bg-teste-200 p-2 hover:border hover:border-teste-100 top-10">
+                    {IconeSeta}Voltar
+                </div>
+            </div>
+        )
     }
 
-    function renderizarBotoes(){
+    function renderizarBotoes() {
         return renderBtn ? (
             <div className="flex w-full max-w-fit md:justify-center">
-                    <div onClick={() => window.location.reload()} className="ml-2 pb-1">
-                        Voltar
-                        {IconeVoltar}
-                    </div>
+                <div onClick={() => window.location.reload()} className="ml-2 pb-1">
+                    Voltar
+                    {IconeVoltar}
+                </div>
 
                 <div className="flex mr-4 w-96 justify-center">
                     <div
@@ -55,7 +60,7 @@ export default function GeradorPdf(props: GeradorPdfProps) {
                     </div>
                 </div>
             </div>
-        ): null
+        ) : null
     }
     return (
         <section className="flex flex-col h-screen w-screen items-center justify-center  overflow-auto bg-gray-200">
@@ -68,7 +73,7 @@ export default function GeradorPdf(props: GeradorPdfProps) {
                 rotate={props.rotate ? props.rotate : 0}
             >
                 <Page
-                    height={500}
+                    height={570}
                     pageNumber={numberPage}
                 />
             </Document>

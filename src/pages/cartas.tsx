@@ -44,7 +44,7 @@ export default function Cartas() {
         )
     }
     return !pdfShow ? (
-        <LayoutPrincipal heightConteudo={'1/2'} header className="bg-cartas bg-left-bottom bg-cover lg:bg-right">
+        <LayoutPrincipal textoHeader="Cartas" heightConteudo={'1/2'} header className="bg-cartas bg-left-bottom bg-cover lg:bg-right">
             <div className="linha bg-gray-500 mt-2 w-full h-0.5 md:w-4/5"></div>
 
             <Botao texto={`Cartas do mês de ${meses[new Date().getMonth()]}`} onClick={()=>{setVisivelCartas(true), setVisivel(false)}} />

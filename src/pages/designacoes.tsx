@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Botao from "../components/Botao";
 import LayoutPrincipal from "../components/LayoutPrincipal";
 import DateConverter, { tresMesesProgramacao } from "../functions/meses";
 import GeradorPdf from "../components/GeradorPdf";
+import usePdfShow from "../data/hooks/usePdfShow";
 
 export default function Designacoes() {
 
-    const [pdfShow, setPdfShow] = useState(false) //aqui define se o pdf vai ser renderizado ou se vai ser o layout
-
+   
+    const { pdfShow, setPdfShow } = usePdfShow()  //aqui define se o pdf vai ser renderizado ou se vai ser o layout
     const [opcao, setOpcao] = useState<'meiodesemana'| 'fimdesemana' | ''>('') // aqui define o caminho que ele vai acessar para chegar no pdf ou da reuniao do meio de semana ou do fim de semana
 
     const [pdfMes, setPdfMes] = useState('') // define o mes que vai ser gerado o pdf
@@ -22,7 +23,7 @@ export default function Designacoes() {
 
     function renderizarPdf(opcao: string) {
         return (
-            <GeradorPdf caminho={opcao} mes={pdfMes} />
+            <GeradorPdf caminho={opcao} mes={pdfMes}/>
         )
     }
 
@@ -47,7 +48,7 @@ export default function Designacoes() {
 
     return !pdfShow ? (
 
-        <LayoutPrincipal heightConteudo={'1/2'} header className='bg-designacoes bg-center bg-cover'>
+        <LayoutPrincipal textoHeader="Designações Semanais" heightConteudo={'1/2'} header className='bg-designacoes bg-center bg-cover'>
             <Botao
                 onClick={() => setVisivel(true)}
                 texto='Vida e Ministério'

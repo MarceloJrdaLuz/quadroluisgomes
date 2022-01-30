@@ -17,8 +17,8 @@ export default function Botao(props: BotaoProps) {
     function renderizarBotao() {
         return (
             <button  className={`
-                bg-teste-100 my-1  hover:bg-teste-200 hover:text-black w-full rounded-md ${props.height ? props.height : 'h-10'}  
-                text-white text-base
+                bg-teste-100 my-1  hover:bg-teste-200 hover:border hover:border-teste-100 hover:text-black w-full rounded-md ${props.height ? props.height : 'h-11'}  
+                text-white text-lg
                  font-medium md:w-4/5 md:m-1 auto
                  mx-1 ${props.className}
                 `} onClick={props.onClick}>

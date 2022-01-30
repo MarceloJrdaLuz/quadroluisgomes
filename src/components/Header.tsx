@@ -1,13 +1,19 @@
+import TextoHeader from "./TextoHeader";
 
 interface HeaderProps {
     className?: string
+    children?: any
+    texto?: string
 }
 
 export default function Header(props: HeaderProps) {
 
     return (
-        <header className={`h-1/2 lg:h-3/4 w-full brightness-30 ${props.className}
-        `}>
-        </header>
+        <div className="relative flex justify-center items-center h-1/2 lg:h-3/4 w-full ">
+            <header className={`flex  h-full w-full lg:h-full md:h-full brightness-30 ${props.className}
+            `}>
+            </header>
+                <span className={`absolute text-3xl titulo text-white`}>{props.texto}</span>
+        </div>
     )
 }

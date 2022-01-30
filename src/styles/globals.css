@@ -12,6 +12,15 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+.titulo:after{
+  content: ' ';
+  width: 75%;
+  height: 10px;
+  display: block;
+  background-color: #006d77;
+  margin: 8px auto;
+}
+
 
 
 html,

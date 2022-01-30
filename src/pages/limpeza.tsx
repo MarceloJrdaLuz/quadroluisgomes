@@ -2,6 +2,7 @@ import { useState } from "react";
 import Botao from "../components/Botao";
 import GeradorPdf from "../components/GeradorPdf";
 import LayoutPrincipal from "../components/LayoutPrincipal";
+import TextoHeader from "../components/TextoHeader";
 
 export default function Limpeza (){
 
@@ -13,7 +14,8 @@ export default function Limpeza (){
         )
     }
     return !pdfShow ? (
-        <LayoutPrincipal heightConteudo={'1/2'} header className="bg-limpeza bg-left-bottom bg-cover lg:bg-right">
+        <LayoutPrincipal heightConteudo={'1/2'} header className="bg-limpeza bg-left-bottom bg-cover lg:bg-right" textoHeader="Limpeza do Salão" >
+               
             <div className="linha bg-gray-500 mt-2 w-full h-0.5 md:w-4/5"></div>
             <Botao onClick={() => {setPdfShow(true)}}texto='Designações de Limpeza'/>
             <Botao href='/' texto='Voltar'/>

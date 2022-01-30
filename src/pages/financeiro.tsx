@@ -13,7 +13,7 @@ export default function Financeiro() {
         )
     }
     return !pdfShow ? (
-        <LayoutPrincipal heightConteudo={'1/2'} header className="bg-contas bg-left-bottom bg-cover lg:bg-right">
+        <LayoutPrincipal  heightConteudo={'1/2'} header className="bg-contas bg-left-bottom bg-cover lg:bg-right" textoHeader="Relatório Financeiro">
             <div className="linha bg-gray-500 mt-2 w-full h-0.5 md:w-4/5"></div>
 
             <Botao onClick={()=>setPdfShow(true)} texto='Relatório das Contas' />
