@@ -3,7 +3,6 @@ import Botao from "../components/Botao";
 import GeradorPdf from "../components/GeradorPdf";
 import HeadComponent from "../components/HeadComponent";
 import LayoutPrincipal from "../components/LayoutPrincipal";
-import TextoHeader from "../components/TextoHeader";
 
 export default function Limpeza (){
 
