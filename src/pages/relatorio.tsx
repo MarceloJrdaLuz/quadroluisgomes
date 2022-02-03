@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Conteudo from "../components/Conteudo";
 import HeadComponent from "../components/HeadComponent";
 import { IconeSeta } from "../components/Icons/Icons";
 import LayoutPrincipal from "../components/LayoutPrincipal";
@@ -10,7 +9,7 @@ export default function Relatorio() {
         <>
             <HeadComponent title="Relatório" />
             <LayoutPrincipal bgFundo={'bg-teste-100'} heightConteudo="auto">
-                <Link href={'/'}>
+                <Link href={'/'} passHref>
                     <div className="absolute top-10 left-11 rounded-full bg-teste-200 p-2 hover:border hover:border-teste-100">
                         {IconeSeta}
                     </div>
