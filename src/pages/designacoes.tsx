@@ -24,7 +24,7 @@ export default function Designacoes() {
 
     function renderizarPdf(opcao: string) {
         return (
-            <GeradorPdf caminho={opcao} mes={pdfMes} />
+            <GeradorPdf caminho={opcao} mes={pdfMes} setPdfShow={setPdfShow} />
         )
     }
 

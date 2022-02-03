@@ -21,7 +21,7 @@ export default function Cartas() {
     function renderizarPdf(item?: string) {
         console.log(item)
         return (
-            <GeradorPdf caminho='cartas' mes={item} rotate={rotate} />
+            <GeradorPdf caminho='cartas' mes={item} rotate={rotate} setPdfShow={setPdfShow} />
         )
     }
 
