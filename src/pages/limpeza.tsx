@@ -10,7 +10,7 @@ export default function Limpeza (){
 
     function renderizarPdf(opcao: string) {
         return (
-            <GeradorPdf caminho={opcao} mes='limpeza'/>
+            <GeradorPdf caminho={opcao} mes='limpeza' setPdfShow={setPdfShow}/>
         )
     }
     return !pdfShow ? (

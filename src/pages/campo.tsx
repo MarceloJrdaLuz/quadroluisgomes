@@ -10,7 +10,7 @@ export default function Campo (){
 
     function renderizarPdf(opcao: string) {
         return (
-            <GeradorPdf caminho={opcao} mes='campo'/>
+            <GeradorPdf caminho={opcao} mes='campo' setPdfShow={setPdfShow}/>
         )
     }
     return !pdfShow ? (

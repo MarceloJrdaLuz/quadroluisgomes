@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Document, Page } from "react-pdf";
 import { IconeSeta, IconeSetaDireita, IconeSetaEsquerda, IconeVoltar } from "./Icons/Icons";
 import loading from './Icons/loadin.gif'
@@ -10,6 +10,7 @@ interface GeradorPdfProps {
     mes?: string
     caminho: 'meiodesemana' | 'fimdesemana' | 'cartas' | 'financeiro' | any
     rotate?: number
+    setPdfShow: Dispatch<SetStateAction<boolean>>
 }
 export default function GeradorPdf(props: GeradorPdfProps) {
 
@@ -30,7 +31,7 @@ export default function GeradorPdf(props: GeradorPdfProps) {
         return (
             <div className="bg-gray-300 h-screen w-screen flex justify-center items-center">
                 <div className="text-2xl text-center font-semibold text-gray-900  bg-teste-200 px-20 py-10 shadow shadow-slate-900  md:px-32 md:py-12 rounded-lg w-5/6">Arquivo não disponível</div>
-                <div onClick={()=> window.location.reload()} className="absolute flex justify-start rounded-full bg-teste-200 p-2 hover:border hover:border-teste-100 top-10">
+                <div onClick={()=> props.setPdfShow(false)} className="absolute flex justify-start rounded-full bg-teste-200 p-2 hover:border hover:border-teste-100 top-10">
                     {IconeSeta}Voltar
                 </div>
             </div>
@@ -40,7 +41,7 @@ export default function GeradorPdf(props: GeradorPdfProps) {
     function renderizarBotoes() {
         return renderBtn ? (
             <div className="flex w-full max-w-fit md:justify-center">
-                <div onClick={() => window.location.reload()} className="ml-2 pb-1">
+                <div onClick={() => props.setPdfShow(false)} className="ml-2 pb-1">
                     Voltar
                     {IconeVoltar}
                 </div>
