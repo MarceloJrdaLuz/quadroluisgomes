@@ -38,7 +38,7 @@ export default function RelatorioForm() {
 
     const searchInput = useRef(null)
 
-    function handleFocus(){
+    function handleFocus() {
         !inputHorasInvalido || !inputNomeInvalido ? null : searchInput.current.focus()
     }
 
@@ -51,16 +51,18 @@ export default function RelatorioForm() {
         return btnEnvio ? (
             <div className="flex ">
                 <div className="flex w-full h-16">
-                    <a href={linkMarcelo} className="flex justify-center items-center bg-teste-200 my-1  hover:bg-teste-200  w-full rounded-md
+                    <Link href={linkMarcelo} passHref>
+                        <button className="flex justify-center items-center bg-teste-200 my-1  hover:bg-teste-200  w-full rounded-md
                                 text-black text-base
                                  font-medium md:w-4/5 md:m-1 auto hover:-translate-x-1
                                  mx-1 hover:border-2 hover:border-black
                                  ">
-                        <span>Marcelo</span>
-                        <span className="ml-2">{IconeWhats}</span>
-                    </a>
+                            <span>Marcelo</span>
+                            <span className="ml-2">{IconeWhats}</span>
+                        </button>
+                    </Link>
 
-                    <Link href={linkPaulo}>
+                    <Link href={linkPaulo} passHref>
                         <button className="flex justify-center items-center bg-teste-200 my-1  hover:bg-teste-200  w-full rounded-md
                         text-black text-base
                          font-medium md:w-4/5 md:m-1 auto hover:-translate-x-1
@@ -70,14 +72,14 @@ export default function RelatorioForm() {
                         </button>
                     </Link>
                 </div>
-            </div>
+            </div >
         ) : null
     }
     return (
         <div className="px-4 w-full flex flex-col border-2 rounded-xl bg-gray-200">
             <h1 className="my-4 flex justify-center text-3xl font-semibold">Relatório</h1>
             <form onSubmit={e => { e.preventDefault(), submit() }} className="flex flex-col  p-3">
-                <Input  name="nome" placeholder="Nome*" tipo='text' onChange={({ target: { value } }) => {setNome(value), setInputNomeInvalido(false)}} invalido={inputNomeInvalido ? 'invalido': ''} focus={searchInput} />
+                <Input name="nome" placeholder="Nome*" tipo='text' onChange={({ target: { value } }) => { setNome(value), setInputNomeInvalido(false) }} invalido={inputNomeInvalido ? 'invalido' : ''} focus={searchInput} />
 
                 {inputNomeInvalido && <p className="flex justify-end text-red-700 font-semibold -mt-3">Campo obrigatório*</p>}
 
@@ -87,7 +89,7 @@ export default function RelatorioForm() {
 
                 <Input name="videos" placeholder="Vídeos" tipo='number' onChange={({ target: { value } }) => setVideos(value)} />
 
-                <Input name="horas" placeholder="Horas*" tipo='number' onChange={({ target: { value } }) => {setHoras(value), setInputHorasInvalido(false)}} invalido={inputHorasInvalido ? 'invalido': ''}/>
+                <Input name="horas" placeholder="Horas*" tipo='number' onChange={({ target: { value } }) => { setHoras(value), setInputHorasInvalido(false) }} invalido={inputHorasInvalido ? 'invalido' : ''} />
 
                 {inputHorasInvalido && <p className="flex justify-end text-red-700 font-semibold -mt-3">Campo obrigatório*</p>}
 
@@ -101,7 +103,7 @@ export default function RelatorioForm() {
                     <Botao
                         height={'h-16'}
                         texto={'Enviar'}
-                        onClick={() => { setBtnEnvio(true), renderizarBotoesEnvio, submit(), handleFocus()}}
+                        onClick={() => { setBtnEnvio(true), renderizarBotoesEnvio, submit(), handleFocus() }}
                         className="hover:border-2 hover:border-black hover:-translate-y-1 md:m-auto"
                     />
                 </div>
