@@ -49,7 +49,7 @@ export default function Designacoes() {
 
     return !pdfShow ? (
         <>
-            <HeadComponent title="Designações"/>
+            <HeadComponent title="Designações" urlMiniatura="https://bituruna.netlify.app/images/designacoes.png"/>
             <LayoutPrincipal textoHeader="Designações Semanais" heightConteudo={'1/2'} header className='bg-designacoes bg-center bg-cover'>
                 <Botao
                     onClick={() => setVisivel(true)}

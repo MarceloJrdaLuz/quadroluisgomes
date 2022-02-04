@@ -46,7 +46,7 @@ export default function Cartas() {
     }
     return !pdfShow ? (
         <>
-            <HeadComponent title="Cartas" />
+            <HeadComponent title="Cartas" urlMiniatura="https://bituruna.netlify.app/images/cartas.jpg"/>
             <LayoutPrincipal textoHeader="Cartas" heightConteudo={'1/2'} header className="bg-cartas bg-left-bottom bg-cover lg:bg-right">
                 <div className="linha bg-gray-500 mt-2 w-full h-0.5 md:w-4/5"></div>
 
