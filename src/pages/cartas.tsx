@@ -39,8 +39,8 @@ export default function Cartas() {
     function renderizarBotoesCartas() {
         return (
             <div className="flex justify-between w-full md:w-4/5">
-                <Botao onClick={() => { setItem('carta1'), setPdfShow(true) }} texto='Carta 1' />
-                <Botao onClick={() => { setItem('carta2'), setPdfShow(true) }} texto='Carta 2' />
+                <Botao onClick={() => { setItem('carta1'), setPdfShow(true), setRotate(0) }} texto='Carta 1' />
+                <Botao onClick={() => { setItem('carta2'), setPdfShow(true), setRotate(0) }} texto='Carta 2' />
             </div>
         )
     }
