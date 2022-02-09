@@ -78,8 +78,8 @@ export default function RelatorioForm() {
     return (
         <div className="px-4 w-full flex flex-col border-2 rounded-xl bg-gray-200">
             <h1 className="my-4 flex justify-center text-3xl font-semibold">Relatório</h1>
-            <form onSubmit={e => { e.preventDefault(), submit() }} className="flex flex-col  p-3">
-                <Input name="nome" placeholder="Nome*" tipo='text' onChange={({ target: { value } }) => { setNome(value), setInputNomeInvalido(false) }} invalido={inputNomeInvalido ? 'invalido' : ''} focus={searchInput} />
+            <form onSubmit={e => { e.preventDefault(),submit() }} className="flex flex-col  p-3">
+                <Input name="nome" placeholder="Nome*" tipo='text' onChange={({ target: { value } }) => {setNome(value), value != "" ? setInputNomeInvalido(false): setInputNomeInvalido(true) }} invalido={inputNomeInvalido ? 'invalido' : ''} focus={searchInput} />
 
                 {inputNomeInvalido && <p className="flex justify-end text-red-700 font-semibold -mt-3">Campo obrigatório*</p>}
 
@@ -89,7 +89,7 @@ export default function RelatorioForm() {
 
                 <Input name="videos" placeholder="Vídeos" tipo='number' onChange={({ target: { value } }) => setVideos(value)} />
 
-                <Input name="horas" placeholder="Horas*" tipo='number' onChange={({ target: { value } }) => { setHoras(value), setInputHorasInvalido(false) }} invalido={inputHorasInvalido ? 'invalido' : ''} />
+                <Input name="horas" placeholder="Horas*" tipo='number' onChange={({ target: { value } }) => {setHoras(value),  value != "" && value!=0 ? setInputHorasInvalido(false): setInputHorasInvalido(true) }} invalido={inputHorasInvalido ? 'invalido' : ''} />
 
                 {inputHorasInvalido && <p className="flex justify-end text-red-700 font-semibold -mt-3">Campo obrigatório*</p>}
 
