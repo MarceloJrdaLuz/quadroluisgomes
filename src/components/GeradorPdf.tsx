@@ -7,8 +7,7 @@ import loading from './Icons/loadin.gif'
 
 
 interface GeradorPdfProps {
-    mes?: string
-    caminho: 'meiodesemana' | 'fimdesemana' | 'cartas' | 'financeiro' | any
+    nomeArquivo?: string
     rotate?: number
     setPdfShow: Dispatch<SetStateAction<boolean>>
 }
@@ -67,7 +66,7 @@ export default function GeradorPdf(props: GeradorPdfProps) {
         <section className="flex flex-col h-screen w-screen items-center justify-center  overflow-auto bg-gray-200">
 
             <Document
-                file={`/assets/${props.caminho}/${props.mes}.pdf`}
+                file={`https://marceloupload.s3.sa-east-1.amazonaws.com/-${props.nomeArquivo}.pdf`}
                 onLoadSuccess={onDocumentLoadSuccess}
                 loading={<Image src={loading} alt="Gif de carregamento"></Image>}
                 error={renderError}

@@ -10,9 +10,8 @@ export default function Designacoes() {
 
 
     const { pdfShow, setPdfShow } = usePdfShow()  //aqui define se o pdf vai ser renderizado ou se vai ser o layout
-    const [opcao, setOpcao] = useState<'meiodesemana' | 'fimdesemana' | ''>('') // aqui define o caminho que ele vai acessar para chegar no pdf ou da reuniao do meio de semana ou do fim de semana
-
-    const [pdfMes, setPdfMes] = useState('') // define o mes que vai ser gerado o pdf
+    
+    const [opcao, setOpcao] = useState('') // aqui define o caminho que ele vai acessar para chegar no pdf ou da reuniao do meio de semana ou do fim de semana
 
     const [visivel, setVisivel] = useState(false) // mostrar ou nao mostrar opções dos meses da programação
 
@@ -24,7 +23,7 @@ export default function Designacoes() {
 
     function renderizarPdf(opcao: string) {
         return (
-            <GeradorPdf caminho={opcao} mes={pdfMes} setPdfShow={setPdfShow} />
+            <GeradorPdf nomeArquivo={opcao} setPdfShow={setPdfShow} />
         )
     }
 
@@ -32,17 +31,17 @@ export default function Designacoes() {
     function renderizarBotoes() {
         return tresMeses ? (
             <div className="flex justify-between w-full md:w-4/5 ">
-                <Botao onClick={() => { setOpcao('meiodesemana'), setPdfShow(true), setPdfMes(`${DateConverter('mes-1')}`) }} texto={`${DateConverter('mes-1')}`} />
+                <Botao onClick={() => { setPdfShow(true), setOpcao(`${DateConverter('mes-1')}`) }} texto={`${DateConverter('mes-1')}`} />
 
-                <Botao onClick={() => { setOpcao('meiodesemana'), setPdfShow(true), setPdfMes(`${DateConverter('mes')}`) }} texto={`${DateConverter('mes')}`} />
+                <Botao onClick={() => { setPdfShow(true), setOpcao(`${DateConverter('mes')}`) }} texto={`${DateConverter('mes')}`} />
 
-                <Botao onClick={() => { setOpcao('meiodesemana'), setPdfShow(true), setPdfMes(`${DateConverter('mes+1')}`) }} texto={`${DateConverter('mes+1')}`} />
+                <Botao onClick={() => { setPdfShow(true), setOpcao(`${DateConverter('mes+1')}`) }} texto={`${DateConverter('mes+1')}`} />
             </div>
         ) : (
             <div className="flex justify-between w-full md:w-4/5 ">
-                <Botao onClick={() => { setOpcao('meiodesemana'), setPdfShow(true), setPdfMes(`${DateConverter('mes')}`) }} texto={`${DateConverter('mes')}`} />
+                <Botao onClick={() => { setPdfShow(true), setOpcao(`${DateConverter('mes')}`) }} texto={`${DateConverter('mes')}`} />
 
-                <Botao onClick={() => { setOpcao('meiodesemana'), setPdfShow(true), setPdfMes(`${DateConverter('mes+1')}`) }} texto={`${DateConverter('mes+1')}`} />
+                <Botao onClick={() => { setPdfShow(true), setOpcao(`${DateConverter('mes+1')}`) }} texto={`${DateConverter('mes+1')}`} />
             </div>
         )
     }
@@ -60,7 +59,7 @@ export default function Designacoes() {
                 {!visivel ? <p className="font-bold  text-xl">Quinta-feira às 19:30hrs</p> : null}
 
                 <Botao
-                    onClick={() => { setOpcao('fimdesemana'), setPdfMes(`${DateConverter('mes')}`), setPdfShow(true) }}
+                    onClick={() => { setOpcao('publica'), setPdfShow(true) }}
                     texto='Reunião Pública'
                 />
                 {<p className="font-bold text-xl">Domingo às 09:30hrs</p>}

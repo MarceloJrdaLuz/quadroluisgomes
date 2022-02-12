@@ -5,15 +5,16 @@ import LayoutPrincipal from "../components/LayoutPrincipal";
 import { meses } from "../functions/meses";
 import HeadComponent from "../components/HeadComponent";
 
-export default function Cartas() {
 
+export default function Cartas() {
+    
     const [pdfShow, setPdfShow] = useState(false)
 
     const [visivel, setVisivel] = useState(false) //
 
     const [visivelCartas, setVisivelCartas] = useState(false) //
 
-    const [item, setItem] = useState<'' | 'carta1' | 'carta2' | 'assembleias' | 'congresso' | 'visita'>('')
+    const [item, setItem] = useState<'' | 'Carta1' | 'Carta2' | 'Assembleias' | 'Congresso' | 'Visita'>('')
 
     const [rotate, setRotate] = useState(0)
 
@@ -21,26 +22,26 @@ export default function Cartas() {
     function renderizarPdf(item?: string) {
         console.log(item)
         return (
-            <GeradorPdf caminho='cartas' mes={item} rotate={rotate} setPdfShow={setPdfShow} />
+            <GeradorPdf nomeArquivo={item} rotate={rotate} setPdfShow={setPdfShow} />
         )
     }
 
     function renderizarBotoesEventos() {
         return (
             <div className="flex justify-between w-full md:w-4/5">
-                <Botao onClick={() => { setItem('assembleias'), setPdfShow(true), setRotate(90) }} texto='Assembleias' />
+                <Botao onClick={() => { setItem('Assembleias'), setPdfShow(true), setRotate(90) }} texto='Assembleias' />
 
-                <Botao onClick={() => { setItem('congresso'), setPdfShow(true) }} texto='Congresso' />
+                <Botao onClick={() => { setItem('Congresso'), setPdfShow(true) }} texto='Congresso' />
 
-                <Botao onClick={() => { setItem('visita'), setPdfShow(true), setRotate(90) }} texto='Visita do SC' />
+                <Botao onClick={() => { setItem('Visita'), setPdfShow(true), setRotate(90) }} texto='Visita do SC' />
             </div>
         )
     }
     function renderizarBotoesCartas() {
         return (
             <div className="flex justify-between w-full md:w-4/5">
-                <Botao onClick={() => { setItem('carta1'), setPdfShow(true), setRotate(0) }} texto='Carta 1' />
-                <Botao onClick={() => { setItem('carta2'), setPdfShow(true), setRotate(0) }} texto='Carta 2' />
+                <Botao onClick={() => { setItem('Carta1'), setPdfShow(true), setRotate(0) }} texto='Carta 1' />
+                <Botao onClick={() => { setItem('Carta2'), setPdfShow(true), setRotate(0) }} texto='Carta 2' />
             </div>
         )
     }

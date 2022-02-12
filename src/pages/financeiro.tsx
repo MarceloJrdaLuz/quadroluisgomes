@@ -11,7 +11,7 @@ export default function Financeiro() {
 
     function renderizarPdf(opcao: string) {
         return (
-            <GeradorPdf caminho={opcao} mes='financeiro' setPdfShow={setPdfShow}/>
+            <GeradorPdf nomeArquivo="Financeiro" setPdfShow={setPdfShow}/>
         )
     }
     return !pdfShow ? (
