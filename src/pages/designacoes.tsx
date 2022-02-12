@@ -59,7 +59,7 @@ export default function Designacoes() {
                 {!visivel ? <p className="font-bold  text-xl">Quinta-feira às 19:30hrs</p> : null}
 
                 <Botao
-                    onClick={() => { setOpcao('publica'), setPdfShow(true) }}
+                    onClick={() => { setOpcao('Publica'), setPdfShow(true) }}
                     texto='Reunião Pública'
                 />
                 {<p className="font-bold text-xl">Domingo às 09:30hrs</p>}
