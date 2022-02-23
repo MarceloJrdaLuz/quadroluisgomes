@@ -79,7 +79,7 @@ export default function RelatorioForm() {
         <div className="px-4 w-full flex flex-col border-2 rounded-xl bg-gray-200">
             <h1 className="my-4 flex justify-center text-3xl font-semibold">Relatório</h1>
             <form onSubmit={e => { e.preventDefault(),submit() }} className="flex flex-col  p-3">
-                <Input name="nome" placeholder="Nome*" tipo='text' onChange={({ target: { value } }) => {setNome(value), value != "" ? setInputNomeInvalido(false): setInputNomeInvalido(true) }} invalido={inputNomeInvalido ? 'invalido' : ''} focus={searchInput} />
+                <Input name="nome" placeholder="Nome*" tipo='text' onChange={({ target: { value } }) => {setNome(value), value.trim() !== "" ? setInputNomeInvalido(false): setInputNomeInvalido(true) }} invalido={inputNomeInvalido ? 'invalido' : ''} focus={searchInput} />
 
                 {inputNomeInvalido && <p className="flex justify-end text-red-700 font-semibold -mt-3">Campo obrigatório*</p>}
 
