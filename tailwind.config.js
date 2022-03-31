@@ -10,8 +10,7 @@ module.exports = {
         'designacoes': "url('/images/designacoes.png')",
         'cartas': "url('/images/cartas.jpg')",
         'contas': "url('/images/contas.jpg')",
-        'limpeza': "url('/images/limpeza.jpg')",
-        'campo': "url('/images/campo.png')"
+        'limpeza': "url('/images/limpeza.jpg')"
       }),
       brightness: {
         30: '.30',
