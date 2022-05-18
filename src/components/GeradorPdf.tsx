@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Dispatch, SetStateAction, useState } from "react";
 import { Document, Page } from "react-pdf";
-import { IconeSeta, IconeSetaDireita, IconeSetaEsquerda, IconeVoltar } from "./Icons/Icons";
+import { IconeSeta, IconeSetaDireita, IconeSetaEsquerda, IconeVoltar, IconeRotacao } from "./Icons/Icons";
 import loading from './Icons/loadin.gif'
 
 
@@ -63,8 +63,8 @@ export default function GeradorPdf(props: GeradorPdfProps) {
                     onClick={()=>{setRotacao(rotacao === 0 ? rotacao + 90 : rotacao -90)}}
                     className="flex flex-col ml-4 justify-center items-center pb-1"
                     >
-                        Rotacao
-                        {IconeSetaDireita}
+                        Girar
+                        {IconeRotacao}
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@ export default function GeradorPdf(props: GeradorPdfProps) {
                 onLoadSuccess={onDocumentLoadSuccess}
                 loading={<Image src={loading} alt="Gif de carregamento"></Image>}
                 error={renderError}
-                rotate={rotacao}
+                rotate={props.rotate ? props.rotate : rotacao}
             >
                 <Page
                     height={570}
