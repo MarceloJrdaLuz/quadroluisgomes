@@ -1,4 +1,3 @@
-import { loadGetInitialProps } from "next/dist/shared/lib/utils";
 import useValidar from "../data/hooks/useValidar";
 import { MesString } from "../functions/meses";
 import Label from "./Label";

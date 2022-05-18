@@ -46,7 +46,7 @@ export default function Cartas() {
     function renderizarBotoesEventos() {
         return (
             <div className="flex justify-between w-full md:w-4/5">
-                <Botao onClick={() => { setItem('Assembleias'), setPdfShow(true), setRotate(0) }} texto='Assembleias' />
+                <Botao onClick={() => { setItem('Assembleias'), setPdfShow(true), setRotate(90) }} texto='Assembleias' />
 
                 <Botao onClick={() => { setItem('Congresso'), setPdfShow(true) }} texto='Congresso' />
 
