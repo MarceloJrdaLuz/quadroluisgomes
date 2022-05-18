@@ -16,6 +16,7 @@ export default function GeradorPdf(props: GeradorPdfProps) {
     const [renderBtn, setRenderBtn] = useState(true)
     const [numPages, setNumPages] = useState(null)
     const [numberPage, setNumberPage] = useState(1)
+    const [rotacao, setRotacao] = useState(0)
     const ultimaPagina = numPages
     const primeiraPagina = numPages - numPages + 1
 
@@ -58,6 +59,11 @@ export default function GeradorPdf(props: GeradorPdfProps) {
                         Seguinte
                         {IconeSetaDireita}
                     </div>
+                    <div
+                    onClick={()=>{setRotacao(rotacao === 0 ? rotacao + 90 : rotacao -90)}}
+                    >
+                        Rotacao
+                    </div>
                 </div>
             </div>
         ) : null
@@ -70,7 +76,7 @@ export default function GeradorPdf(props: GeradorPdfProps) {
                 onLoadSuccess={onDocumentLoadSuccess}
                 loading={<Image src={loading} alt="Gif de carregamento"></Image>}
                 error={renderError}
-                rotate={props.rotate ? props.rotate : 0}
+                rotate={props.rotate ? props.rotate : rotacao}
             >
                 <Page
                     height={570}
