@@ -16,7 +16,7 @@ export default function GeradorPdf(props: GeradorPdfProps) {
     const [renderBtn, setRenderBtn] = useState(true)
     const [numPages, setNumPages] = useState(null)
     const [numberPage, setNumberPage] = useState(1)
-    const [rotacao, setRotacao] = useState(props.rotate)
+    const [rotacao, setRotacao] = useState(props.rotate ? props.rotate : 0)
     const ultimaPagina = numPages
     const primeiraPagina = numPages - numPages + 1
 
