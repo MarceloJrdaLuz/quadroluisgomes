@@ -61,8 +61,10 @@ export default function GeradorPdf(props: GeradorPdfProps) {
                     </div>
                     <div
                     onClick={()=>{setRotacao(rotacao === 0 ? rotacao + 90 : rotacao -90)}}
+                    className="flex flex-col ml-4 justify-center items-center pb-1"
                     >
                         Rotacao
+                        {IconeSetaDireita}
                     </div>
                 </div>
             </div>
@@ -76,7 +78,7 @@ export default function GeradorPdf(props: GeradorPdfProps) {
                 onLoadSuccess={onDocumentLoadSuccess}
                 loading={<Image src={loading} alt="Gif de carregamento"></Image>}
                 error={renderError}
-                rotate={props.rotate ? props.rotate : rotacao}
+                rotate={rotacao}
             >
                 <Page
                     height={570}
