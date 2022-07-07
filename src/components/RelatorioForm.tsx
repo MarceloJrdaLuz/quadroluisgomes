@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import useValidar from "../data/hooks/useValidar";
 import DateConverter, { MesString } from "../functions/meses";
@@ -13,6 +13,7 @@ export default function RelatorioForm() {
 
     const [btnEnvio, setBtnEnvio] = useState(false)
     const [nome, setNome] = useState('')
+    const [mes, setMes] = useState(null)
     const [publicacoes, setPublicacoes] = useState(0)
     const [videos, setVideos] = useState(0)
     const [horas, setHoras] = useState(0)
@@ -20,6 +21,10 @@ export default function RelatorioForm() {
     const [estudos, setEstudos] = useState(0)
     const [observacoes, setObservacoes] = useState('')
 
+    useEffect(()=>{
+        setMes(new Date().getMonth())
+    },[])
+    
     const {
         inputHorasInvalido,
         inputNomeInvalido,
@@ -83,7 +88,7 @@ export default function RelatorioForm() {
 
                 {inputNomeInvalido && <p className="flex justify-end text-red-700 font-semibold -mt-3">Campo obrigatório*</p>}
 
-                <Input readonly mes={() => new Date().getMonth()} name="mes" placeholder="Mês" tipo='text' />
+                <Input readonly mes={mes} name="mes" placeholder="Mês" tipo='text' />
 
                 <Input name="publicacoes" placeholder="Publicações" tipo='number' onChange={({ target: { value } }) => setPublicacoes(value)} />
 
