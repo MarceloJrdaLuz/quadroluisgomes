@@ -49,7 +49,7 @@ export default function RelatorioForm() {
 
     function renderizarBotoesEnvio() {
 
-        const linkMarcelo = `https://api.whatsapp.com/send?phone=5542998675557&text=*Publicador:*%20${nome}%0A%0A*Mês:*%20${MesString(new Date().getMonth())}%0A%0A*Publicações:*%20${publicacoes}%0A*Vídeos:*%20${videos}%0A*Horas:*%20${horas}%0A*Revisitas:*%20${revisitas}%0A*Estudos:*%20${estudos}%0A%0A*Observações:*%20${observacoes}`
+        const linkMarcelo = `https://api.whatsapp.com/send?phone=5542988860708&text=*Publicador:*%20${nome}%0A%0A*Mês:*%20${MesString(new Date().getMonth())}%0A%0A*Publicações:*%20${publicacoes}%0A*Vídeos:*%20${videos}%0A*Horas:*%20${horas}%0A*Revisitas:*%20${revisitas}%0A*Estudos:*%20${estudos}%0A%0A*Observações:*%20${observacoes}`
 
         const linkPaulo = `https://api.whatsapp.com/send?phone=556681420394&text=*Publicador:*%20${nome}%0A%0A*Mês:*%20${MesString(new Date().getMonth())}%0A%0A*Publicações:*%20${publicacoes}%0A*Vídeos:*%20${videos}%0A*Horas:*%20${horas}%0A*Revisitas:*%20${revisitas}%0A*Estudos:*%20${estudos}%0A%0A*Observações:*%20${observacoes}`
 
