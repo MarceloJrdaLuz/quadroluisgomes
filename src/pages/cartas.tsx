@@ -4,7 +4,7 @@ import GeradorPdf from "../components/GeradorPdf";
 import LayoutPrincipal from "../components/LayoutPrincipal";
 import { meses } from "../functions/meses";
 import HeadComponent from "../components/HeadComponent";
-import loading from '../components/Icons/loadin.gif'
+import loading from '../components/Icons/loading-menor.gif'
 import Image from "next/image";
 
 
@@ -38,7 +38,7 @@ export default function Cartas() {
                         <Botao key={obj.name} onClick={() => { setItem(obj.name.replace('.pdf', '')), setPdfShow(true), setRotate(0) }} texto={obj.name.replace('.pdf', '')} />
                     )
                 )): (
-                    <div className="flex relative justify-center items-center w-10 h-5 m-auto">
+                    <div className="flex relative justify-center items-center w-12 h-12 m-auto">
                         <Image layout="fill" src={loading} alt="Gif de carregamento"></Image>
                     </div>
                 )}
