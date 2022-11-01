@@ -33,7 +33,7 @@ export default function RelatorioForm() {
     },[])
     
     async function getDirigentes (){
-        const dadosDirigentes = await api.get('https://bituruna-uploads.herokuapp.com/dirigentes')
+        const dadosDirigentes = await api.get('/dirigentes')
         setDirigentes(dadosDirigentes.data)
     }
 
