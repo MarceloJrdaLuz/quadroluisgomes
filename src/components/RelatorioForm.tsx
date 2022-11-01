@@ -43,7 +43,7 @@ export default function RelatorioForm() {
             link: `https://api.whatsapp.com/send?phone=55${dirigente.phone.replace(/[^0-9]/g, '')}&text=*Publicador:*%20${nome}%0A%0A*Mês:*%20${MesString(new Date().getMonth())}%0A%0A*Publicações:*%20${publicacoes}%0A*Vídeos:*%20${videos}%0A*Horas:*%20${horas}%0A*Revisitas:*%20${revisitas}%0A*Estudos:*%20${estudos}%0A%0A*Observações:*%20${observacoes}`,
             nome: dirigente.name
         }))
-        setDirigentesLinks([...dirigentesLinks, ...links])
+        setDirigentesLinks([...links])
     },[dirigentes, nome, publicacoes, videos, horas, revisitas, estudos, observacoes])
 
     
