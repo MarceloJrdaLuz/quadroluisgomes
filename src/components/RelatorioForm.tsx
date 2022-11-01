@@ -72,13 +72,13 @@ export default function RelatorioForm() {
     function renderizarBotoesEnvio() {
         
         return btnEnvio ? (
-            <div className="flex ">
-                <div className="flex w-full h-16">
+            <div className="flex justify-between items-stretch flex-col">
+                <div className="flex h-auto w-full flex-wrap justify-center flex-1">
                     {dirigentesLinks?.map(item => (
                         <Link key={item.link} href={item.link} passHref>
-                        <button className="flex justify-center items-center bg-teste-200 my-1  hover:bg-teste-200  w-full rounded-md
-                                text-black text-base
-                                 font-medium md:w-4/5 md:m-1 auto hover:-translate-x-1
+                        <button className="flex justify-center items-center bg-teste-200 my-1  hover:bg-teste-200 h-12 rounded-md min-w-[100px] px-8
+                                text-black text-base 
+                                 font-medium   auto hover:-translate-x-1
                                  mx-1 hover:border-2 hover:border-black
                                  ">
                             <span>{item.nome}</span>
