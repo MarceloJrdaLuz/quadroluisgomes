@@ -27,15 +27,16 @@ export default function RelatorioForm() {
     useEffect(()=>{
         setMes(new Date().getMonth())
     },[])
-
+    
+    useEffect(()=>{
+        getDirigentes()
+    },[])
+    
     async function getDirigentes (){
         const dadosDirigentes = await api.get('/dirigentes')
         setDirigentes(dadosDirigentes.data)
     }
 
-    useEffect(()=>{
-        getDirigentes()
-    },[])
 
     useEffect(()=>{
         const links = dirigentes?.map(dirigente => ({
