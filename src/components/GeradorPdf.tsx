@@ -19,6 +19,7 @@ export default function GeradorPdf(props: GeradorPdfProps) {
     const [rotacao, setRotacao] = useState(props.rotate ? props.rotate : 0)
     const ultimaPagina = numPages
     const primeiraPagina = numPages - numPages + 1
+    console.log(props.nomeArquivo)
 
     function onDocumentLoadSuccess({ numPages }) {
         setRenderBtn(true)
