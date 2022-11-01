@@ -74,7 +74,7 @@ export default function RelatorioForm() {
         return btnEnvio ? (
             <div className="flex ">
                 <div className="flex w-full h-16">
-                    {links.map(item => (
+                    {links?.map(item => (
                         <Link key={item.link} href={item.link} passHref>
                         <button className="flex justify-center items-center bg-teste-200 my-1  hover:bg-teste-200  w-full rounded-md
                                 text-black text-base
