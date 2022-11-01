@@ -44,7 +44,7 @@ export default function RelatorioForm() {
             nome: dirigente.name
         }))
         setDirigentesLinks([...dirigentesLinks, ...links])
-    },[dirigentes])
+    },[dirigentes, nome, publicacoes, videos, horas, revisitas, estudos, observacoes])
 
     
     const {
