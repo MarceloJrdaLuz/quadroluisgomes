@@ -22,6 +22,7 @@ export default function RelatorioForm() {
     const [estudos, setEstudos] = useState(0)
     const [observacoes, setObservacoes] = useState('')
     const [dirigentes, setDirigentes] = useState([])
+    const [dirigentesLinks, setDirigentesLinks] = useState([])
 
     useEffect(()=>{
         setMes(new Date().getMonth())
@@ -30,17 +31,20 @@ export default function RelatorioForm() {
     async function getDirigentes (){
         const dadosDirigentes = await api.get('/dirigentes')
         setDirigentes(dadosDirigentes.data)
-        console.log(dirigentes)
     }
 
     useEffect(()=>{
         getDirigentes()
     },[])
 
-    const links = dirigentes?.map(dirigente => ({
-        link: `https://api.whatsapp.com/send?phone=55${dirigente.phone.replace(/[^0-9]/g, '')}&text=*Publicador:*%20${nome}%0A%0A*Mês:*%20${MesString(new Date().getMonth())}%0A%0A*Publicações:*%20${publicacoes}%0A*Vídeos:*%20${videos}%0A*Horas:*%20${horas}%0A*Revisitas:*%20${revisitas}%0A*Estudos:*%20${estudos}%0A%0A*Observações:*%20${observacoes}`,
-        nome: dirigente.name
-    }))
+    useEffect(()=>{
+        const links = dirigentes?.map(dirigente => ({
+            link: `https://api.whatsapp.com/send?phone=55${dirigente.phone.replace(/[^0-9]/g, '')}&text=*Publicador:*%20${nome}%0A%0A*Mês:*%20${MesString(new Date().getMonth())}%0A%0A*Publicações:*%20${publicacoes}%0A*Vídeos:*%20${videos}%0A*Horas:*%20${horas}%0A*Revisitas:*%20${revisitas}%0A*Estudos:*%20${estudos}%0A%0A*Observações:*%20${observacoes}`,
+            nome: dirigente.name
+        }))
+        setDirigentesLinks([...dirigentesLinks, ...links])
+    },[dirigentes])
+
     
     const {
         inputHorasInvalido,
@@ -65,16 +69,15 @@ export default function RelatorioForm() {
     }
 
     function renderizarBotoesEnvio() {
-        console.log(links)
-
         // const linkEverton = `https://api.whatsapp.com/send?phone=5542999737593&text=*Publicador:*%20${nome}%0A%0A*Mês:*%20${MesString(new Date().getMonth())}%0A%0A*Publicações:*%20${publicacoes}%0A*Vídeos:*%20${videos}%0A*Horas:*%20${horas}%0A*Revisitas:*%20${revisitas}%0A*Estudos:*%20${estudos}%0A%0A*Observações:*%20${observacoes}`
 
         // const linkPaulo = `https://api.whatsapp.com/send?phone=556681420394&text=*Publicador:*%20${nome}%0A%0A*Mês:*%20${MesString(new Date().getMonth())}%0A%0A*Publicações:*%20${publicacoes}%0A*Vídeos:*%20${videos}%0A*Horas:*%20${horas}%0A*Revisitas:*%20${revisitas}%0A*Estudos:*%20${estudos}%0A%0A*Observações:*%20${observacoes}`
+        console.log(dirigentesLinks)
 
         return btnEnvio ? (
             <div className="flex ">
                 <div className="flex w-full h-16">
-                    {links?.map(item => (
+                    {dirigentesLinks?.map(item => (
                         <Link key={item.link} href={item.link} passHref>
                         <button className="flex justify-center items-center bg-teste-200 my-1  hover:bg-teste-200  w-full rounded-md
                                 text-black text-base
