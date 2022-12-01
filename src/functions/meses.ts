@@ -26,14 +26,14 @@ export function tresMesesProgramacao(){
 }
 
 export function casoJanOuDez (mes: number){
+    console.log(mes)
     // recebe um mes que será 0 ou 11, se for mes 0 (janeiro) ele retorna o mes de dezembro (11) caso for 11 ele retorna o mes de janeiro (0)
-    return mes === 0 ? 11 : 0
+    return mes === 0 ? 11 : 10
 }
 
 export function MesString(mes: number){
-
     // Capturar o dia atual pra ver se passou do dia 25, se for entâo se entende que ela está preenchendo o relatório do mes atual, do contrario se refere ao mes anterior.
     const diaAtual = new Date().getDate()
 
-    return diaAtual >=25 ?  meses[mes] : meses[mes > 0 && mes <11 ? mes-1 : casoJanOuDez(mes)] //caso o mes atual for dezembro ou janeiro caem num caso diferente de mes ou mes -1, então é chamada a função pra esse caso.
+    return diaAtual >=25 ?  meses[mes] : meses[mes === 0 || mes === 11 ? casoJanOuDez(mes) : mes-1] //caso o mes atual for dezembro ou janeiro caem num caso diferente de mes ou mes -1, então é chamada a função pra esse caso.
 }

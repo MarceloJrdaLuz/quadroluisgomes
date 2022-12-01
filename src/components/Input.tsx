@@ -29,7 +29,7 @@ export default function Input(props: InputProps) {
                 onChange={props.onChange}
                 type={props.tipo}
                 name={props.name}
-                placeholder={props.mes ? `${MesString(props.mes)}` : " "} className={`block p-4 w-full  text-xl
+                placeholder={props.mes >=0 ? `${MesString(props.mes)}` : " "} className={`block p-4 w-full  text-xl
                 text-black appearance-none placeholder-black focus:outline-none bg-transparent read-only:bg-gray-300 read-only:rounded-lg`}
                 readOnly={props.readonly}
                 autoComplete="off"
