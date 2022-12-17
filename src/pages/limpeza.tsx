@@ -15,7 +15,7 @@ export default function Limpeza (){
     }
     return !pdfShow ? (
         <>
-        <HeadComponent title="Limpeza" urlMiniatura="https://bituruna.netlify.app/images/limpeza.jpg"/>
+        <HeadComponent title="Limpeza" urlMiniatura="https://luisgomes.netlify.app/images/limpeza.jpg"/>
         <LayoutPrincipal heightConteudo={'1/2'} header className="bg-limpeza bg-left-bottom bg-cover lg:bg-right" textoHeader="Limpeza do Salão" >
                
             <div className="linha bg-gray-500 mt-2 w-full h-0.5 md:w-4/5"></div>

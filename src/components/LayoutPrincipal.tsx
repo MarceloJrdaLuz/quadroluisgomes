@@ -21,7 +21,7 @@ export default function LayoutPrincipal(props: LayoutPrincipalProps) {
                 {props.children}
             </Conteudo>
 
-            <Footer ano={new Date().getFullYear()} nomeCongregacao="Congregação Bituruna - PR-18" aviso="Atenção: favor não compartilhar acesso ao site para outros que não pertencem à congregação" />
+            <Footer ano={new Date().getFullYear()} nomeCongregacao="Congregação Luis Gomes - PB-04" aviso="Atenção: favor não compartilhar acesso ao site para outros que não pertencem à congregação" />
         </div>
     )
 }

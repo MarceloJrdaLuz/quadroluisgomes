@@ -23,7 +23,7 @@ export default function Cartas() {
     const [cartas, setCartas] = useState([])
 
     useEffect(() => {
-        const dados = fetch('https://bituruna-uploads.herokuapp.com/posts')
+        const dados = fetch('https://luisgomesrn.vercel.app/posts')
         .then(res => res.json())
         .then(data => setCartas(data))
     }, [])

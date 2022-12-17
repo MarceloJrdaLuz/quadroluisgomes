@@ -48,7 +48,7 @@ export default function Designacoes() {
 
     return !pdfShow ? (
         <>
-            <HeadComponent title="Designações" urlMiniatura="https://bituruna.netlify.app/images/designacoes.png"/>
+            <HeadComponent title="Designações" urlMiniatura="https://luisgomes.netlify.app/images/designacoes.png"/>
             <LayoutPrincipal textoHeader="Designações Semanais" heightConteudo={'1/2'} header className='bg-designacoes bg-center bg-cover'>
                 <Botao
                     onClick={() => setVisivel(true)}
@@ -56,13 +56,13 @@ export default function Designacoes() {
                 />
 
                 {visivel ? renderizarBotoes() : null}
-                {!visivel ? <p className="font-bold  text-xl">Quinta-feira às 19:30hrs</p> : null}
+                {!visivel ? <p className="font-bold  text-xl">Quarta-feira às 19:00 hrs</p> : null}
 
                 <Botao
                     onClick={() => { setOpcao('Publica'), setPdfShow(true) }}
                     texto='Reunião Pública'
                 />
-                {<p className="font-bold text-xl">Domingo às 09:30hrs</p>}
+                {<p className="font-bold text-xl">Sábado às 17:00 hrs</p>}
                 <Botao href='/' texto='Voltar' />
             </LayoutPrincipal>
         </>
