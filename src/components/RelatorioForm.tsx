@@ -34,7 +34,6 @@ export default function RelatorioForm() {
     
     async function getDirigentes (){
         const dadosDirigentes = await api.get('/dirigentes')
-        console.log(dadosDirigentes)
         setDirigentes(dadosDirigentes.data)
     }
 

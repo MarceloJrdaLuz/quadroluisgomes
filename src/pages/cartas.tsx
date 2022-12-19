@@ -22,24 +22,30 @@ export default function Cartas() {
 
     const [cartas, setCartas] = useState([])
 
-    useEffect(() => {
-        const dados = fetch('https://luisgomesrn.vercel.app/posts')
-        .then(res => res.json())
-        .then(data => setCartas(data))
-    }, [])
+    const [mapCartasConcluido, setMapCartasConcluido] = useState(false)
 
-    console.log(cartas)
+    useEffect(() => {
+        const dados = fetch('https://painelluisgomes.vercel.app/posts')
+            .then(res => res.json())
+            .then(posts => {
+                posts.length > 0 && posts.forEach(post => {
+                    post.name.includes('Carta') && setCartas((rest) => [...rest, post])
+                })
+            })
+            .catch(error => console.log(error))
+    }, [])
 
     function exibirCartas() {
         return (
             <div className="flex justify-between w-full md:w-4/5">
-                {cartas.length > 0 ? cartas.map(obj => (
-                    obj.name.includes('Carta') && (
-                        <Botao key={obj.name} onClick={() => { setItem(obj.name.replace('.pdf', '')), setPdfShow(true), setRotate(0) }} texto={obj.name.replace('.pdf', '')} />
-                    )
-                )): (
-                    <div className="flex relative justify-center items-center w-12 h-12 m-auto">
-                        <Image layout="fill" src={loading} alt="Gif de carregamento"></Image>
+                {cartas.length > 0 ? cartas.map(obj =>
+                (
+                    <Botao key={obj.name} onClick={() => { setItem(obj.name.replace('.pdf', '')), setPdfShow(true), setRotate(0) }} texto={obj.name.replace('.pdf', '')} />
+                )
+                ) : (
+                    <div className="flex flex-1 justify-center items-center text-center">
+                        {/* <Image layout="fill" src={loading} alt="Gif de carregamento"></Image> */}
+                        <span className="flex justify-center items-center text-teste-100 text-lg font-bold px-20 w-4/5">{`Nenhuma carta disponível no mês de ${meses[new Date().getMonth()]}` }</span>
                     </div>
                 )}
             </div>
@@ -70,7 +76,7 @@ export default function Cartas() {
             <LayoutPrincipal textoHeader="Cartas" heightConteudo={'1/2'} header className="bg-cartas bg-left-bottom bg-cover lg:bg-right">
                 <div className="linha bg-gray-500 mt-2 w-full h-0.5 md:w-4/5"></div>
 
-                <Botao texto={`Cartas do mês de ${meses[new Date().getMonth()]}`} onClick={() => { setVisivelCartas(true), setVisivel(false)}} />
+                <Botao texto={`Cartas do mês de ${meses[new Date().getMonth()]}`} onClick={() => { setVisivelCartas(true), setVisivel(false) }} />
 
                 {visivelCartas ? exibirCartas() : null}
 
