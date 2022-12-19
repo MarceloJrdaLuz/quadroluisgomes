@@ -45,7 +45,7 @@ export default function Cartas() {
                 ) : (
                     <div className="flex flex-1 justify-center items-center text-center">
                         {/* <Image layout="fill" src={loading} alt="Gif de carregamento"></Image> */}
-                        <span className="flex justify-center items-center text-teste-100 text-lg font-bold px-20 w-4/5">{`Nenhuma carta disponível no mês de ${meses[new Date().getMonth()]}` }</span>
+                        <span className="flex justify-center items-center text-teste-100 text-lg font-bold w-full">{`Nenhuma carta disponível no mês de ${meses[new Date().getMonth()]}` }</span>
                     </div>
                 )}
             </div>
