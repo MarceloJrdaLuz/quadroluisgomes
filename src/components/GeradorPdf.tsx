@@ -17,6 +17,7 @@ export default function GeradorPdf(props: GeradorPdfProps) {
     const [numPages, setNumPages] = useState(null)
     const [numberPage, setNumberPage] = useState(1)
     const [rotacao, setRotacao] = useState(props.rotate ? props.rotate : 0)
+    const [widthView, setWidthView] = useState(innerWidth)
     const ultimaPagina = numPages
     const primeiraPagina = numPages - numPages + 1
 
@@ -81,7 +82,7 @@ export default function GeradorPdf(props: GeradorPdfProps) {
                 rotate={rotacao}
             >
                 <Page
-                    height={570}
+                    height={widthView < 400 ? 460 : 570}
                     pageNumber={numberPage}
                 />
             </Document>
