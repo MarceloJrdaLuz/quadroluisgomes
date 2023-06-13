@@ -32,7 +32,7 @@ export default function GeradorPdf(props: GeradorPdfProps) {
         return (
             <div className="bg-gray-300 h-screen w-screen flex justify-center items-center">
                 <div className="text-2xl text-center font-semibold text-gray-900  bg-teste-200 px-20 py-10 shadow shadow-slate-900  md:px-32 md:py-12 rounded-lg w-5/6">Arquivo não disponível</div>
-                <div onClick={()=> props.setPdfShow(false)} className="absolute flex justify-start rounded-full bg-teste-200 p-2 hover:border hover:border-teste-100 top-10">
+                <div onClick={() => props.setPdfShow(false)} className="absolute flex justify-start rounded-full bg-teste-200 p-2 hover:border hover:border-teste-100 top-10">
                     {IconeSeta}Voltar
                 </div>
             </div>
@@ -61,8 +61,8 @@ export default function GeradorPdf(props: GeradorPdfProps) {
                         {IconeSetaDireita}
                     </div>
                     <div
-                    onClick={()=>{setRotacao(rotacao === 0 ? rotacao + 90 : rotacao -90)}}
-                    className="flex flex-col ml-4 justify-center items-center pb-1"
+                        onClick={() => { setRotacao(rotacao === 0 ? rotacao + 90 : rotacao - 90) }}
+                        className="flex flex-col ml-4 justify-center items-center pb-1"
                     >
                         Girar
                         {IconeRotacao}
@@ -75,9 +75,9 @@ export default function GeradorPdf(props: GeradorPdfProps) {
         <section className="flex flex-col h-screen w-screen items-center justify-center  overflow-auto bg-gray-200">
 
             <Document
-                file={`https://luisgomesrn.s3.amazonaws.com/-${props.nomeArquivo}.pdf?rand=${Date.now()}`}
+                file={`${process.env.NEXT_PUBLIC_AWS_LINK}-${props.nomeArquivo.replace(/\.PDF$/, '.pdf')}?rand=${Date.now()}`}
                 onLoadSuccess={onDocumentLoadSuccess}
-                loading={<Image src={loading} alt="Gif de carregamento"></Image>}
+                loading={<Image src={loading} alt="Gif de carregamento" />}
                 error={renderError}
                 rotate={rotacao}
             >
